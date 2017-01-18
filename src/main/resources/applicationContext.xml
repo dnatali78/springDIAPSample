@@ -10,6 +10,6 @@
 
 	<bean id="componentHelper" class="com.aurea.antipattern.sample.spring.helper.ComponentHelper"/>
 	<bean id="componentService" class="com.aurea.antipattern.sample.spring.services.ComponentService">
-		<property name="helper" ref="componentHelper"></property>
+		<constructor-arg ref="componentHelper"></constructor-arg>
 	</bean>
 </beans>

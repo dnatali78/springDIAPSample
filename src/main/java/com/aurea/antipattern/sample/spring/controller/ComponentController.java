@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,11 +13,14 @@ import com.aurea.antipattern.sample.spring.services.StatusService;
 @RestController
 public class ComponentController {
 
-  @Autowired
-  private StatusService statusService;
+  private final StatusService statusService;
 
-  @Autowired
-  private ComponentService componentService;
+  private final ComponentService componentService;
+
+  public ComponentController(ComponentService componentService, StatusService statusService) {
+    this.componentService = componentService;
+    this.statusService = statusService;
+  }
 
   @RequestMapping("/allcomponents")
   public List<String> allcomponents() {

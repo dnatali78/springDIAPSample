@@ -43,15 +43,12 @@ public class SpringDIApplicationTests {
   private ComponentService componentService;
   @Autowired
   private WebApplicationContext context;
-  
+
   @Before
   public void setup() {
-    mockMvc = MockMvcBuilders
-              .webAppContextSetup(context)
-              .build();
+    mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
   }
-  
-  
+
   @Test
   public void getAllStatusTest() {
     Iterable<Status> statuses = statusService.getStatusForAllComponents();
@@ -80,21 +77,18 @@ public class SpringDIApplicationTests {
   @Test
   public void allStatusController() throws Exception {
     mockMvc.perform(get("/allstatus")).andExpect(status().isOk())
-        .andExpect(content().contentType(APPLICATION_JSON_UTF8))
-        .andExpect(jsonPath("$", hasSize(5)))
-        .andExpect(jsonPath("$[0].component", is("Component1")))
-        .andExpect(jsonPath("$[0].state", is("OK")));
+        .andExpect(content().contentType(APPLICATION_JSON_UTF8)).andExpect(jsonPath("$", hasSize(5)))
+        .andExpect(jsonPath("$[0].component", is("Component1"))).andExpect(jsonPath("$[0].state", is("OK")));
 
   }
-  
+
   @Test
   public void findOneStatusControllerTest() throws Exception {
     mockMvc.perform(get("/status").param("component", "Component1")).andExpect(status().isOk())
-        .andExpect(content().contentType(APPLICATION_JSON_UTF8))
-        .andExpect(jsonPath("component", is("Component1")))
+        .andExpect(content().contentType(APPLICATION_JSON_UTF8)).andExpect(jsonPath("component", is("Component1")))
         .andExpect(jsonPath("state", is("OK")));
   }
-  
+
   @Test
   public void componentDetailsControllerTest() throws Exception {
     mockMvc.perform(get("/allcomponents")).andExpect(status().isOk())
