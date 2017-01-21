@@ -10,8 +10,8 @@
 	
 	<bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.h2.Driver" />
-        <property name="url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
     </bean>
     
 	
@@ -21,8 +21,8 @@
     </bean>
     
     <bean id="statusWithDiffArgsUsingIndex" class="com.aurea.antipattern.sample.spring.bean.Status">
-       	<constructor-arg index="0" value="Component"/>
-        <constructor-arg index="1" value="1"/>
+       	<constructor-arg type="java.lang.String" value="Component"/>
+        <constructor-arg type="java.lang.Integer" value="1"/>
     </bean>
 
 	<bean id="componentHelper" class="com.aurea.antipattern.sample.spring.helper.ComponentHelper"/>

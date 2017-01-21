@@ -22,10 +22,10 @@ public class SpringDITestApplication {
   @Configuration
   public class DbConfiguration {
     
-    @Value("org.h2.Driver")
+    @Value("${jdbc.driver}")
     private String driver;
     
-    @Value("jdbc:h2:mem:stgdb;DB_CLOSE_DELAY=-1")
+    @Value("${jdbc.url}")
     private String url;
     
   }
