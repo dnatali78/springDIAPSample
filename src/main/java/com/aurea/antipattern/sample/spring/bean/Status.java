@@ -21,6 +21,10 @@ public class Status {
     this.component = component;
     this.state = state;
   }
+  
+  public Status(String component, Integer stateValue) {
+    this.component = component;
+}
 
   @Override
   public String toString() {
