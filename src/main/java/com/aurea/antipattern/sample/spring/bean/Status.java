@@ -1,5 +1,7 @@
 package com.aurea.antipattern.sample.spring.bean;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +15,12 @@ public class Status {
   private Long id;
   
   private String component;
-  private String state;
+  private String state = "OK";
 
   protected Status() {}
 
-  public Status(String component, String state) {
+  public Status(String component, Date date) {
       this.component = component;
-      this.state = state;
   }
   
   public Status(String component, Integer stateValue) {

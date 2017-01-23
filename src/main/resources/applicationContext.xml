@@ -17,7 +17,7 @@
 	
 	<bean id="status" class="com.aurea.antipattern.sample.spring.bean.Status">
        	<constructor-arg index="0" value="Component"/>
-        <constructor-arg index="1" value="OK"/>
+        <constructor-arg index="1" value="1/10/2017"/>
     </bean>
     
     <bean id="statusWithDiffArgsUsingIndex" class="com.aurea.antipattern.sample.spring.bean.Status">

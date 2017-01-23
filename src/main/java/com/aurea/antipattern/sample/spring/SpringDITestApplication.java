@@ -1,5 +1,7 @@
 package com.aurea.antipattern.sample.spring;
 
+import java.util.Date;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +51,11 @@ public class SpringDITestApplication {
   public CommandLineRunner demo(StatusRepository repository) {
 
     return (args) -> {
-      repository.save(new Status("Component1", "OK"));
-      repository.save(new Status("Component2", "OK"));
-      repository.save(new Status("Component3", "OK"));
-      repository.save(new Status("Component4", "IN PROGRESS"));
-      repository.save(new Status("Component5", "FAILURE"));
+      repository.save(new Status("Component1", new Date() ));
+      repository.save(new Status("Component2", new Date()));
+      repository.save(new Status("Component3", new Date()));
+      repository.save(new Status("Component4", new Date()));
+      repository.save(new Status("Component5", new Date()));
 
     };
   }
