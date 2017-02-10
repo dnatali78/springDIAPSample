@@ -2,6 +2,7 @@ package com.aurea.antipattern.sample.spring.services;
 
 import org.springframework.stereotype.Service;
 
+import com.aurea.antipattern.sample.spring.bean.Component;
 import com.aurea.antipattern.sample.spring.helper.ComponentHelper;
 
 @Service
@@ -20,6 +21,9 @@ public class ComponentService {
   public String getComponentDetails(String component) {
     return helper.findComponentDetails(component);
   }
-  
-  
+
+  public void saveComponent(Component component) {
+    System.out.println("Saving component");
+  }
+
 }
