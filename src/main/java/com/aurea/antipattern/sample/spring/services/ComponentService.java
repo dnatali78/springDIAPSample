@@ -4,11 +4,14 @@ import org.springframework.stereotype.Service;
 
 import com.aurea.antipattern.sample.spring.bean.Component;
 import com.aurea.antipattern.sample.spring.helper.ComponentHelper;
+import com.aurea.antipattern.sample.spring.repository.ComponentRepository;
 
 @Service
 public class ComponentService {
 
   private ComponentHelper helper;
+  private ComponentRepository compomentRepository;
+  
 
   public void setHelper(ComponentHelper helper) {
     this.helper = helper;
@@ -23,7 +26,7 @@ public class ComponentService {
   }
 
   public void saveComponent(Component component) {
-    System.out.println("Saving component");
+	  compomentRepository.save(component); 
   }
 
 }
