@@ -19,10 +19,14 @@ public class ComponentService {
   }
 
   public String getComponentDetails(String component) {
+	
+	  System.out.println("Entering component details method");
+	  System.out.println("Trying to find" + component + " details.");
+	  
     return helper.findComponentDetails(component);
   }
 
-  public void saveComponent(Component component) {
+  public void saveComponent(Component component) {	  
     System.out.println("Saving component");
   }
 

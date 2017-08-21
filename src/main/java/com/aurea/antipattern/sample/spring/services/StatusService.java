@@ -13,10 +13,14 @@ public class StatusService {
   private StatusRepository statusRepository;
   
   public Iterable<Status> getStatusForAllComponents() {
+	  System.out.println("Getting status for all components..");
    return statusRepository.findAll();
  }
   
   public Status getStatusByComponent(String component) {
+	  
+	  System.out.println("Find status for" + component);
+	  
     return statusRepository.findByComponent(component);
   }
 }
