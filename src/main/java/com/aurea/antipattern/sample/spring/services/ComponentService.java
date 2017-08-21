@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.aurea.antipattern.sample.spring.bean.Component;
 import com.aurea.antipattern.sample.spring.helper.ComponentHelper;
+import com.aurea.antipattern.sample.spring.repository.ComponentRepository;
 
 import lombok.extern.log4j.Log4j;
 
@@ -12,6 +13,7 @@ import lombok.extern.log4j.Log4j;
 public class ComponentService {
 
 	private ComponentHelper helper;
+	private ComponentRepository compomentRepository;
 
 	public void setHelper(ComponentHelper helper) {
 		this.helper = helper;
@@ -22,7 +24,6 @@ public class ComponentService {
 	}
 
 	public String getComponentDetails(String component) {
-
 		log.debug("Entering component details method");
 		log.debug("Trying to find" + component + " details.");
 
@@ -31,6 +32,7 @@ public class ComponentService {
 
 	public void saveComponent(Component component) {
 		log.debug("Saving component");
+		compomentRepository.save(component);
 	}
 
 }
